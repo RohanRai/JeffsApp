@@ -1,0 +1,87 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="CSSFile.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<title> Jeff's App </title>
+  </thead>
+
+  <tbody>
+	<div>
+		<p class="word"> Jeffs App </p>
+	</div>
+	<script>
+ 
+var bodyElement = document.querySelector("body");
+ 
+var requestAnimationFrame = window.requestAnimationFrame || 
+                            window.mozRequestAnimationFrame || 
+                            window.webkitRequestAnimationFrame || 
+                            window.msRequestAnimationFrame;
+ 
+var delay = 0;
+ 
+function changeColor() {
+    delay++;
+     
+    if (delay > 3) {
+        bodyElement.style.backgroundColor = getRandomColor();
+        delay = 0;
+    }
+ 
+    requestAnimationFrame(changeColor);
+}
+changeColor();           
+ 
+function getRandomColor() {
+    // creating a random number between 0 and 255
+    var r = Math.floor(Math.random()*256);
+    var g = Math.floor(Math.random()*256);
+    var b = Math.floor(Math.random()*256);
+     
+    // going from decimal to hex
+    var hexR = r.toString(16);
+    var hexG = g.toString(16);
+    var hexB = b.toString(16);
+     
+    // making sure single character values are prepended with a "0"
+    if (hexR.length == 1) {
+        hexR = "0" + hexR;
+    }
+     
+    if (hexG.length == 1) {
+        hexG = "0" + hexG;
+    }
+ 
+    if (hexB.length == 1) {
+        hexB = "0" + hexB;
+    }
+ 
+    // creating the hex value by concatenatening the string values
+    var hexColor = "#" + hexR + hexG + hexB;
+    return hexColor.toUpperCase();
+}
+</script>
+  </tbody>
+  <style type="text/css">
+	
+	div{
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+		padding-top: 200px;
+	}
+	p{
+		font-size: 200px;
+	}
+  </style>
+</table>
